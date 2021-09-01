@@ -21,7 +21,7 @@ const [errors, setErrors] = useState([])
 const history = useHistory();
 
 const handleSignupLogin = (data) => {
-  console.log('Its working!')
+  console.log('Its working! Props are being passed up to app.js')
   data.errors ? setErrors(data.errors) : setCurrentUser(data)
   if(!data.errors) {
     history.push('/app')

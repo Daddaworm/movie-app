@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './SignupLogin.css'
 
 
-const Login = () => {
+const Login = ({ handleSignupLogin }) => {
     const [state, setState] = useState({});
 
     const onChange = (e) => {
@@ -24,7 +24,7 @@ const Login = () => {
 
     fetch("/login", config)
         .then((res) => res.json())
-        .then((data) => console.log(data, 'Login is Working!'));
+        .then((data) => handleSignupLogin(data));
     };
 
     return (

@@ -26,10 +26,10 @@ const Signup = () => {
 
 
     return (
-        <div>
+        <div className='signup__login' >
             <br/>
             <form onSubmit={handleSubmit}>
-                <fieldset className='signup__login__fieldset'>
+                <fieldset >
                     <legend>Sign up</legend>
                     <br/>
                     <label>Username:<br />

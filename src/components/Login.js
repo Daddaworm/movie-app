@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from 'react'
+import './SignupLogin.css'
+
 
 const Login = () => {
     const [state, setState] = useState({});
@@ -26,10 +28,10 @@ const Login = () => {
     };
 
     return (
-    <div>
+    <div className="signup__login">
         <br />
         <form onSubmit={handleSubmit}>
-            <fieldset className="signup__login__fieldset">
+            <fieldset >
                 <legend>Login</legend><br />
                 <label>Username:<br />
                 <input onChange={onChange} type="text" name="username" /></label><br />

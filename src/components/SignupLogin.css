@@ -1,0 +1,11 @@
+.signup__login {
+    position: fixed;
+    left: 40%;
+
+    max-width:200px;
+    padding: 16px;
+    border:2px solid rgb(0, 0, 0);
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;	
+    border-radius:8px;
+}

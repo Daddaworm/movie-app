@@ -1,8 +1,10 @@
-import React from "react";
-import { useEffect, useHistory } from "react";
+import React from 'react';
+import { Spinner } from 'react-bootstrap' 
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
 
 const Logout = () => {
-    
+
     const history = useHistory();
 
     useEffect(() => {
@@ -15,14 +17,15 @@ const Logout = () => {
     });
 
     const handleLogout = () => {
-        setCurrentUser(null);
+        // setCurrentUser(null);
         setTimeout(() => {
             history.push("/login");
         }, 2000);
+        console.log('User logged out')
     };
 
     return (
-    <div>
+    <div >
         <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
         </Spinner>

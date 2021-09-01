@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Signup = () => {
+const Signup = ({ handleSignupLogin }) => {
 
     const [state, setState] = useState({})
 
@@ -21,7 +21,7 @@ const Signup = () => {
         }
         fetch('/users', config)
             .then(resp => resp.json())
-            .then(data => console.log(data))
+            .then(data => handleSignupLogin(data))
     }
 
 

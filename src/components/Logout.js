@@ -3,7 +3,7 @@ import { Spinner } from 'react-bootstrap'
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
 
-const Logout = () => {
+const Logout = ({ setCurrentUser }) => {
 
     const history = useHistory();
 
@@ -17,7 +17,7 @@ const Logout = () => {
     });
 
     const handleLogout = () => {
-        // setCurrentUser(null);
+        setCurrentUser(null);
         setTimeout(() => {
             history.push("/login");
         }, 2000);

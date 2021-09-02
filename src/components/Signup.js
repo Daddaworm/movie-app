@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
+import Errors from './Errors'
 
-const Signup = ({ handleSignupLogin }) => {
+const Signup = ({ handleSignupLogin, errors }) => {
 
     const [state, setState] = useState({})
 
@@ -44,6 +45,7 @@ const Signup = ({ handleSignupLogin }) => {
                         <input type='submit'></input>
                 </fieldset>
             </form>
+            <Errors errors={errors} />
         </div>
     )
 }

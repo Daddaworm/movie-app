@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Switch, Route, useHistory } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Signup from './components/Signup';
 import Login from './components/Login'
 import Logout from './components/Logout'
@@ -13,6 +13,7 @@ import Banner from './components/Banner';
 import About from './components/About';
 
 
+
 function App() {
 
 const [currentUser, setCurrentUser] = useState(null)
@@ -21,30 +22,41 @@ const [errors, setErrors] = useState([])
 const history = useHistory();
 
 const handleSignupLogin = (data) => {
-  console.log('Its working! Props are being passed up to app.js')
-  data.errors ? setErrors(data.errors) : setCurrentUser(data)
+  // console.log(data.errors, 'this is data.errors')
+  console.log(data, 'this is data')
+  data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
   if(!data.errors) {
-    history.push('/app')
+    history.push('/moviecollection')
     setErrors([])
   }
 }
 
+const stateInitializer = () => {
+  checkSessionId()
+}
 
+const checkSessionId = () => {
+  fetch('/me')
+  .then(resp => resp.json())
+  .then(data => setCurrentUser(data))
+}
+
+useEffect(stateInitializer, [])
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar currentUser={currentUser} />
       <Banner />
 
       <Switch>
           <Route exact path='/signup'>
-            <Signup handleSignupLogin={handleSignupLogin} />
+            <Signup handleSignupLogin={handleSignupLogin} errors={errors} />
           </Route>
           <Route exact path='/login'>
-            <Login handleSignupLogin={handleSignupLogin} />
+            <Login handleSignupLogin={handleSignupLogin} errors={errors} />
           </Route>
           <Route exact path='/logout'>
-            <Logout />
+            <Logout setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path='/moviecollection'>
             <MovieCollection />

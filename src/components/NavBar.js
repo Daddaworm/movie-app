@@ -1,4 +1,5 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 const NavBar = ({ currentUser }) => {
@@ -37,7 +38,7 @@ const NavBar = ({ currentUser }) => {
                     </NavDropdown.Item>
                     </NavDropdown>
                     <Navbar.Text>
-                        Signed in as: <a href="/">{currentUser ? `${currentUser.username}` : "Not Signed In"}</a>
+                        Signed in as: <a href="/moviecollection">{currentUser ? `${currentUser.username}` : "Not Signed In"}</a>
                     </Navbar.Text>
                 </Nav>
                 </Navbar.Collapse>

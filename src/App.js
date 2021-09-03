@@ -1,5 +1,5 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Switch, Route, useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Signup from './components/Signup';
@@ -13,11 +13,12 @@ import Banner from './components/Banner';
 import About from './components/About';
 
 
-
 function App() {
 
 const [currentUser, setCurrentUser] = useState(null)
 const [errors, setErrors] = useState([])
+const [categories, setCategories] = useState([])
+const [movies, setMovies] = useState([])
 
 const history = useHistory();
 
@@ -33,12 +34,19 @@ const handleSignupLogin = (data) => {
 
 const stateInitializer = () => {
   checkSessionId()
+  fetchCategories()
 }
 
 const checkSessionId = () => {
   fetch('/me')
   .then(resp => resp.json())
   .then(data => setCurrentUser(data))
+}
+
+const fetchCategories = () => {
+  fetch('/categories')
+  .then(resp => resp.json())
+  .then(data => setCategories(data))
 }
 
 useEffect(stateInitializer, [])
@@ -62,7 +70,7 @@ useEffect(stateInitializer, [])
             <MovieCollection />
           </Route>
           <Route exact path='/addmovie'>
-            <AddMovie />
+            <AddMovie categories={categories} setMovies={setMovies} />
           </Route>
           <Route exact path='/favorites'>
             <Favorites />

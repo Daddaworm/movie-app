@@ -1,0 +1,13 @@
+.add__movie__form {
+    position: fixed;
+    left: 27%;
+    padding: 3px;
+}
+
+.mpaa__rating__select {
+    width: 100%;
+}
+
+.category__select {
+    width: 100%;
+}

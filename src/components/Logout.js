@@ -25,7 +25,9 @@ const Logout = ({ setCurrentUser }) => {
     };
 
     return (
-    <div >
+    <div className='spinner' >
+        <br />
+        <br />
         <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
         </Spinner>

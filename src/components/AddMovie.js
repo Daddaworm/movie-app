@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import Errors from './Errors'
 import './AddMovie.css'
 
-const AddMovie = ({ categories, setMovies }) => {
+const AddMovie = ({ categories, setMovies, errors }) => {
 
 
     const [state, setState] = useState({})
@@ -57,7 +58,7 @@ const AddMovie = ({ categories, setMovies }) => {
                     </p>
 
                     <p>
-                        <select onChange={onChange} className='category__select' name="group_id" id="group_id">
+                        <select onChange={onChange} className='category__select' name="category_id">
                             <option disabled selected value> -- Select a category -- </option>
                             {renderCategories()}
                         </select>
@@ -69,9 +70,12 @@ const AddMovie = ({ categories, setMovies }) => {
                         <input onChange={onChange} type="text" name='trailer_url' placeholder='Enter movie trailer url' size='101'></input>
                     </p>
                     
-                    <textarea onChange={onChange} name='overview' placeholder='Enter movie overview' cols='100' rows='6'></textarea>
+                    <textarea onChange={onChange} name='overview' placeholder='Enter movie overview' cols='100' rows='6'></textarea><br />
+
+                    <input type='submit' ></input>
                     
                 </form>
+                <Errors errors={errors} />
             </div>
         </div>
     )

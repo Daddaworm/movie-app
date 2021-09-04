@@ -22,7 +22,7 @@ const NavBar = ({ currentUser }) => {
                     <Nav.Link eventKey={2} href="#memes">
                         Dank memes
                     </Nav.Link> */}
-                    <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                    <NavDropdown title="" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="/login">
                         Login
                     </NavDropdown.Item>

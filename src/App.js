@@ -35,6 +35,7 @@ const handleSignupLogin = (data) => {
 const stateInitializer = () => {
   checkSessionId()
   fetchCategories()
+  fetchMovies()
 }
 
 const checkSessionId = () => {
@@ -49,13 +50,20 @@ const fetchCategories = () => {
   .then(data => setCategories(data))
 }
 
+const fetchMovies = () => {
+  fetch('/movies')
+  .then(resp => resp.json())
+  .then(data => setMovies(data))
+}
+
+
 useEffect(stateInitializer, [])
 
   return (
     <div className="App">
       <NavBar currentUser={currentUser} />
       <Banner />
-
+      
       <Switch>
           <Route exact path='/signup'>
             <Signup handleSignupLogin={handleSignupLogin} errors={errors} />
@@ -67,10 +75,10 @@ useEffect(stateInitializer, [])
             <Logout setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path='/moviecollection'>
-            <MovieCollection />
+            <MovieCollection categories={categories} movies={movies} />
           </Route>
           <Route exact path='/addmovie'>
-            <AddMovie categories={categories} setMovies={setMovies} />
+            <AddMovie categories={categories} setMovies={setMovies} errors={errors} />
           </Route>
           <Route exact path='/favorites'>
             <Favorites />

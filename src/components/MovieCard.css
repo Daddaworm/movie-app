@@ -1,0 +1,29 @@
+.movie__card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    
+}
+
+.poster__div {
+    background-color: rgb(255, 255, 255);
+
+}
+
+.movie__card__front {
+    
+}
+
+.movie__card__back {
+    overflow-x: scroll;
+}
+
+.poster__div {
+    overflow: hidden;
+    transition: transform 450ms;
+}
+
+.poster__div:hover {
+    transform: scale(1.08);
+}

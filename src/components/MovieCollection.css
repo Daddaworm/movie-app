@@ -1,0 +1,7 @@
+.movie__collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    margin-right: 4%;
+}

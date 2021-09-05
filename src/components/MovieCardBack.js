@@ -64,13 +64,16 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
             .then(data => {
                 console.log(data)
                 if(!data.errors) {
-                    setFavorites([...favorites, data])
+                    setFavorites(filterFavorites())
                     // history.push('/favorites')
                 }
             } 
         )
     }
 
+    const filterFavorites = () => {
+        return favorites.filter(favorite => favorite.id !== id)
+    }
 
     function truncate(str, n) {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -99,8 +102,14 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
                     }
                 </ListGroup>
                 <Card.Body>
-                    <Card.Link onClick={handleClick} >Update Movie</Card.Link>
-                    <Card.Link onClick={handleDeleteMovie} href="#" >Delete Movie</Card.Link>
+                    {   movie.favorite
+                        ?   <Card.Link onClick={handleClick} >Update Movie</Card.Link>
+                        :<>
+                            <Card.Link onClick={handleClick} >Update Movie</Card.Link>
+                            <Card.Link onClick={handleDeleteMovie} href="#" >Delete Movie</Card.Link >
+                        </>
+
+                    }
                 </Card.Body>
             </Card>
         </div>

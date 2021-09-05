@@ -25,7 +25,10 @@ const Login = ({ handleSignupLogin, errors }) => {
 
     fetch("/login", config)
         .then((res) => res.json())
-        .then((data) => handleSignupLogin(data));
+        .then((data) => {
+            console.log(data, 'login data')
+            handleSignupLogin(data)
+        });
     };
 
     return (

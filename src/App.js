@@ -28,10 +28,22 @@ const history = useHistory();
 const handleSignupLogin = (data) => {
   // console.log(data.errors, 'this is data.errors')
   console.log(data, 'this is data')
-  data.errors ? setErrors(data.errors) : setCurrentUser(data)
+  data.errors ? setErrors(data.errors) : handleState(data)
   if(!data.errors) {
     history.push('/moviecollection')
     setErrors([])
+  }
+}
+
+const handleState = (data) => {
+  if(!data.errors){
+    console.log(data, 'handleState')
+      setCurrentUser(data)
+      setMovies(data.movies)
+      setFavorites(filterFavorites(data.movies))
+  } else {
+    setMovies([])
+    setFavorites([])
   }
 }
 
@@ -45,9 +57,8 @@ const checkSessionId = () => {
   fetch('/me')
   .then(resp => resp.json())
   .then(data => {
-    setCurrentUser(data)
-    setMovies(data.movies)
-    setFavorites(filterFavorites(data.movies))
+    console.log(data, '/me')
+    handleState(data)
   })
 }
 
@@ -110,7 +121,7 @@ useEffect(stateInitializer, [])
             <AddMovie categories={categories} setMovies={setMovies} errors={errors} movies={movies} />
           </Route>
           <Route exact path='/favorites'>
-            <Favorites favorites={favorites} setFavorites={setFavorites} />
+            <Favorites favorites={favorites} setFavorites={setFavorites} setMovieUpdate={setMovieUpdate}/>
           </Route>
           <Route exact path='/updatemovie'>
             <UpdateMovie categories={categories} errors={errors} movieUpdate={movieUpdate} movies={movies} setMovies={setMovies}/>

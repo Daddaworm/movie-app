@@ -1,11 +1,12 @@
 import React from 'react'
 import MovieCard from './MovieCard'
 
-const Favorites = ({ favorites, setFavorites}) => {
+const Favorites = ({ favorites, setFavorites, setMovieUpdate }) => {
 
     const renderMovieCard = () => {
         return favorites.map((movie) => {
-            return <MovieCard key={movie.id} movie={movie} movies={favorites} setFavorites={setFavorites}/>
+            return <MovieCard key={movie.id} movie={movie} movies={favorites} setFavorites={setFavorites} favorites={favorites} setMovieUpdate={setMovieUpdate}/>
+            // <MovieCard key={movie.id} movie={movie} setMovieUpdate={setMovieUpdate} movies={movies} setMovies={setMovies} favorites={favorites} setFavorites={setFavorites}/>
         })
     }
 

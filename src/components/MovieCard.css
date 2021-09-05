@@ -12,11 +12,11 @@
 }
 
 .movie__card__front {
-    
+
 }
 
 .movie__card__back {
-    overflow-x: scroll;
+    overflow-x: hidden;
 }
 
 .poster__div {

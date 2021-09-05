@@ -3,22 +3,11 @@ import Row from './Row'
 import MovieCard from './MovieCard'
 import './MovieCollection.css'
 
+const MovieCollection = ({ categories, movies, setMovies, setMovieUpdate, favorites, setFavorites }) => {
 
-const MovieCollection = ({ categories, movies }) => {
-
-    
-    // const handleCardFlip = () => {
-    //     if(movieCardVisable){
-    //         return <MovieCardFront movie={movie}/>
-    //     } else {
-    //         return <MovieCardBack />
-    //     }
-    // }
-
-    
     const renderMovieCard = () => {
         return movies.map((movie) => {
-            return <MovieCard key={movie.id} movie={movie} />
+            return <MovieCard key={movie.id} movie={movie} setMovieUpdate={setMovieUpdate} movies={movies} setMovies={setMovies} favorites={favorites} setFavorites={setFavorites}/>
         })
     }
 

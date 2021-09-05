@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 import Errors from './Errors'
 import './AddMovie.css'
 
-const AddMovie = ({ categories, setMovies, errors }) => {
-
+const AddMovie = ({ categories, setMovies, errors, movies }) => {
 
     const [state, setState] = useState({})
+
+    const history = useHistory()
 
     const onChange = (e) => {
         setState({ ...state, [e.target.name]: e.target.value})
@@ -25,12 +27,11 @@ const AddMovie = ({ categories, setMovies, errors }) => {
             .then(resp => resp.json())
             .then(data => {
                 if(!data.errors){
-                    setMovies(data)
+                    setMovies([data, ...movies])
+                    history.push('/moviecollection')
                 }
             })
     }
-    
-
 
     const renderCategories = () => {
         return categories.map(category => <option key={category.id} value={category.id}>{category.name}</option>)

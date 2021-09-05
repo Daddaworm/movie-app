@@ -26,7 +26,6 @@ const Signup = ({ handleSignupLogin, errors }) => {
             .then(data => handleSignupLogin(data))
     }
 
-
     return (
         <div className='signup__login' >
             <br/>

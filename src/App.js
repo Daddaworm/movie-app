@@ -1,5 +1,4 @@
 import './App.css';
-
 import { Switch, Route, useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Signup from './components/Signup';
@@ -9,7 +8,6 @@ import NavBar from './components/NavBar';
 import MovieCollection from './components/MovieCollection';
 import AddMovie from './components/AddMovie';
 import Favorites from './components/Favorites';
-import Banner from './components/Banner';
 import About from './components/About';
 import UpdateMovie from './components/UpdateMovie';
 
@@ -20,6 +18,7 @@ const [currentUser, setCurrentUser] = useState(null)
 const [errors, setErrors] = useState([])
 const [categories, setCategories] = useState([])
 const [movies, setMovies] = useState([])
+const [userCategories, setUserCategories] = useState([])
 const [movieUpdate, setMovieUpdate] = useState({})
 const [favorites, setFavorites] = useState([])
 
@@ -40,6 +39,7 @@ const handleState = (data) => {
     console.log(data, 'handleState')
       setCurrentUser(data)
       setMovies(data.movies)
+      setUserCategories(data.categories)
       setFavorites(filterFavorites(data.movies))
   } else {
     setMovies([])
@@ -50,7 +50,6 @@ const handleState = (data) => {
 const stateInitializer = () => {
   checkSessionId()
   fetchCategories()
-  // fetchMovies()
 }
 
 const checkSessionId = () => {
@@ -62,47 +61,31 @@ const checkSessionId = () => {
   })
 }
 
-// const setUserAndMovie
-
 const fetchCategories = () => {
   fetch('/categories')
   .then(resp => resp.json())
   .then(data => setCategories(data))
 }
 
-const fetchMovies = () => {
-  fetch('/movies')
-  .then(resp => resp.json())
-  .then(data => setMovies(data))
-}
-
-// const fetchUserMovies = () => {
-//   if(currentUser){
-//     fetch(`/users/${currentUser.id}`)
-//     .then(resp => resp.json())
-//     .then(data => console.log(data.movies, 'user movies'))
-//   } else {
-//     console.log('not working')
-//   }
+// const fetchMovies = () => {
+//   fetch('/movies')
+//   .then(resp => resp.json())
+//   .then(data => setMovies(data))
 // }
 
 const filterFavorites = (movies) => {
   return movies.filter(movie => {
-    return movie.favorite == true
+    return movie.favorite === true
   })
 }
 
-// useEffect(fetchUserMovies, [currentUser])
-
 useEffect(stateInitializer, [])
 
-// on page load call filterFavorites and also every time there is a change in movie state
-// useEffect(setFavorites(filterFavorites), [])
 
   return (
     <div className="App">
       <NavBar currentUser={currentUser} />
-      <Banner />
+      {/* <Banner /> */}
       
       <Switch>
           <Route exact path='/signup'>
@@ -115,7 +98,7 @@ useEffect(stateInitializer, [])
             <Logout setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path='/moviecollection'>
-            <MovieCollection categories={categories} movies={movies} setMovies={setMovies} setMovieUpdate={setMovieUpdate} favorites={favorites} setFavorites={setFavorites}/>
+            <MovieCollection userCategories={userCategories} movies={movies} setMovies={setMovies} setMovieUpdate={setMovieUpdate} favorites={favorites} setFavorites={setFavorites}/>
           </Route>
           <Route exact path='/addmovie'>
             <AddMovie categories={categories} setMovies={setMovies} errors={errors} movies={movies} />

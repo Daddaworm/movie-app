@@ -41,7 +41,9 @@ const AddMovie = ({ categories, setMovies, errors, movies }) => {
     return (
         <div className='add__movie__div'>
             <br />
-            <h5 id="add__movie__header">Add a movie to your colletion!</h5>
+            <h5 className="title__addmovie">Add a movie to your colletion!</h5>
+            <br />
+            <br />
             <div className='add__movie__form'>
                 <form onSubmit={handleCreateMovie} >
                     
@@ -51,9 +53,9 @@ const AddMovie = ({ categories, setMovies, errors, movies }) => {
                             <option value="" disabled selected>Select MPAA rating</option>
                             <option value='G'>Rated: G - General Audiences. All ages admitted</option>
                             <option value='PG'>Rated: PG - Parental guidence suggested. Some material may not be suited for children</option>
-                            <option value='G'>Rated: PG-13 - Parents stronly cautioned. Some material may be inappropriate for childre under 13</option>
-                            <option value='G'>Rated: R - Restricted. Children under 17 require accompanying parent or legal guardian</option>
-                            <option value='G'>Rated: NC-17 - No one under 17 admitted</option>
+                            <option value='PG-13'>Rated: PG-13 - Parents stronly cautioned. Some material may be inappropriate for childre under 13</option>
+                            <option value='R'>Rated: R - Restricted. Children under 17 require accompanying parent or legal guardian</option>
+                            <option value='NC-17'>Rated: NC-17 - No one under 17 admitted</option>
                             <option value='Not yet rated'>Not yet rated</option>
                         </select>
                     </p>
@@ -71,7 +73,7 @@ const AddMovie = ({ categories, setMovies, errors, movies }) => {
                         <input onChange={onChange} type="text" name='trailer_url' placeholder='Enter movie trailer url' size='101'></input>
                     </p>
                     
-                    <textarea onChange={onChange} name='overview' placeholder='Enter movie overview' cols='100' rows='6'></textarea><br />
+                    <textarea onChange={onChange} name='overview' placeholder='Enter movie overview' cols='100' rows='6'></textarea><br /><br />
 
                     <input type='submit' ></input>
                     

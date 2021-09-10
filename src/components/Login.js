@@ -32,21 +32,22 @@ const Login = ({ handleSignupLogin, errors }) => {
     };
 
     return (
-    <div className="signup__login">
-        <br />
-        <form onSubmit={handleSubmit}>
-            <fieldset >
-                <legend>Login</legend><br />
-                <label>Username:<br />
-                <input onChange={onChange} type="text" name="username" /></label><br />
-                <label>Password:<br />
-                <input onChange={onChange} type="password" name="password" /></label><br />
-                <br />
-                <input type="submit"></input>
-            </fieldset>
-        </form>
-        <Errors errors={errors} />
-    </div>
+        <div>
+            <br />
+            <br />
+            <div className="signup__login">
+                <form onSubmit={handleSubmit}>
+                    <br />
+                        <label>Username:<br />
+                            <input onChange={onChange} className='input__username' id='username' type="text" name="username" /></label><br />
+                        <label>Password:<br />
+                            <input onChange={onChange} className='input__password' type="password" name="password" /></label><br /><br />
+                        <input id='submit' type="submit"></input>
+                </form><br />
+                    <p>New to Movie-Collector? <a href='/signup'>Sign up</a></p>
+                <Errors errors={errors} />
+            </div>
+        </div>
     );
 };
 

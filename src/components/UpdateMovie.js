@@ -51,9 +51,9 @@ const UpdateMovie = ({ categories, errors, movies, setMovies, movieUpdate }) => 
                             <option value="" disabled selected>Select MPAA rating</option>
                             <option value='G'>Rated: G - General Audiences. All ages admitted</option>
                             <option value='PG'>Rated: PG - Parental guidence suggested. Some material may not be suited for children</option>
-                            <option value='G'>Rated: PG-13 - Parents stronly cautioned. Some material may be inappropriate for childre under 13</option>
-                            <option value='G'>Rated: R - Restricted. Children under 17 require accompanying parent or legal guardian</option>
-                            <option value='G'>Rated: NC-17 - No one under 17 admitted</option>
+                            <option value='PG-13'>Rated: PG-13 - Parents stronly cautioned. Some material may be inappropriate for childre under 13</option>
+                            <option value='R'>Rated: R - Restricted. Children under 17 require accompanying parent or legal guardian</option>
+                            <option value='NC-17'>Rated: NC-17 - No one under 17 admitted</option>
                             <option value='Not yet rated'>Not yet rated</option>
                         </select>
                     </p>

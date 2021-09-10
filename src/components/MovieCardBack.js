@@ -1,13 +1,13 @@
 import React from 'react'
 import './MovieCard.css'
-import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap'
+import { Card, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { useHistory } from 'react-router'
-import Favorites from './Favorites'
 
-const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, favorites }) => {
+const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, favorites, userCategories }) => {
 
     const {id} = movie
     const history = useHistory()
+    // const [category, setCategory] = useState({})
 
     const handleClick = () => {
         setMovieUpdate(movie)
@@ -75,6 +75,10 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
         return favorites.filter(favorite => favorite.id !== id)
     }
 
+    // const filterCategory = () => {
+    //     return userCategories.filter(category => category.id == movie.id)
+    // }
+
     function truncate(str, n) {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     }
@@ -86,11 +90,12 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
                 <Card.Body>
                     <Card.Title>{movie.title}</Card.Title>
                     <Card.Text>
-                    {truncate(movie.overview, 190)}
+                    {truncate(movie.overview, 160)}
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem>MPAA Rating: {movie.mpaa_rating}</ListGroupItem>
+                    {/* <ListGroupItem>Category: {}</ListGroupItem> */}
                 </ListGroup>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem><Card.Link href={movie.trailer_url} target="_blank">Watch Movie Trailer</Card.Link></ListGroupItem>

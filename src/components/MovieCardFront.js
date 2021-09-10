@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import './MovieCard.css'
 
 const MovieCardFront = ({movie}) => {

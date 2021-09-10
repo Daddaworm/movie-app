@@ -1,5 +1,6 @@
 import React from 'react'
 import MovieCard from './MovieCard'
+import '../App.css'
 
 const Favorites = ({ favorites, setFavorites, setMovieUpdate }) => {
 
@@ -12,7 +13,9 @@ const Favorites = ({ favorites, setFavorites, setMovieUpdate }) => {
 
     return (
         <div>
-            <h1>This is favorites</h1>
+            <br />
+            <h5 className='title__favorite'>My Favorites</h5><br />
+            <br />
             <div className='movie__collection'>
                 {renderMovieCard()}
                 

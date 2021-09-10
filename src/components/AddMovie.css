@@ -2,6 +2,7 @@
     position: fixed;
     left: 27%;
     padding: 3px;
+
 }
 
 .mpaa__rating__select {
@@ -10,4 +11,9 @@
 
 .category__select {
     width: 100%;
+}
+
+.title__addmovie {
+    position: absolute;
+    left: 43%;
 }

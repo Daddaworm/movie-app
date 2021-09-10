@@ -3,16 +3,24 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 10px;
+
+    width: 100%;
+    background-color: #111;
     
 }
 
 .poster__div {
-    background-color: rgb(255, 255, 255);
+    background-color: #111;
+    overflow: hidden;
 
 }
 
-.movie__card__front {
-
+.poster__card {
+    padding: 20px;
+    background-color: #111;
+    padding: 21px;
+    object-fit: contain;
+    overflow: hidden;
 }
 
 .movie__card__back {
@@ -20,6 +28,11 @@
 }
 
 .poster__div {
+    /* object-fit: contain;
+    max-height: 100px;
+    width: 100%; */
+
+    background-color: inherit;
     overflow: hidden;
     transition: transform 450ms;
 }

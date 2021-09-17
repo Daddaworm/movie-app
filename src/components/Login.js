@@ -3,7 +3,6 @@ import { useState } from 'react'
 import './SignupLogin.css'
 import Errors from "./Errors";
 
-
 const Login = ({ handleSignupLogin, errors }) => {
     const [state, setState] = useState({});
 

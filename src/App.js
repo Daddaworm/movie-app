@@ -85,7 +85,6 @@ useEffect(stateInitializer, [])
   return (
     <div className="App">
       <NavBar currentUser={currentUser} />
-      {/* <Banner /> */}
       
       <Switch>
           <Route exact path='/signup'>

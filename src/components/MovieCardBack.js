@@ -7,7 +7,6 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
 
     const {id} = movie
     const history = useHistory()
-    // const [category, setCategory] = useState({})
 
     const handleClick = () => {
         setMovieUpdate(movie)
@@ -43,7 +42,6 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
                 console.log(data)
                 if(!data.errors) {
                     setFavorites([...favorites, data])
-                    // history.push('/favorites')
                 }
             } 
         )
@@ -74,10 +72,6 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
     const filterFavorites = () => {
         return favorites.filter(favorite => favorite.id !== id)
     }
-
-    // const filterCategory = () => {
-    //     return userCategories.filter(category => category.id == movie.id)
-    // }
 
     function truncate(str, n) {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;

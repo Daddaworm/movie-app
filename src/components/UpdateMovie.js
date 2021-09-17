@@ -57,7 +57,6 @@ const UpdateMovie = ({ categories, errors, movies, setMovies, movieUpdate }) => 
                             <option value='Not yet rated'>Not yet rated</option>
                         </select>
                     </p>
-
                     <p>
                         <select onChange={onChange} className='category__select' name="category_id">
                             <option disabled selected value> -- Select a category -- </option>
@@ -70,13 +69,10 @@ const UpdateMovie = ({ categories, errors, movies, setMovies, movieUpdate }) => 
                     <p>
                         <input onChange={onChange} type="text" name='trailer_url' value={state.trailer_url} placeholder='Enter movie trailer url' size='101'></input>
                     </p>
-                    
-                    <textarea onChange={onChange} name='overview' value={state.overview} placeholder='Enter movie overview' cols='100' rows='6'></textarea><br />
-
-                    <input type='submit' ></input>
-                    
-                </form>
-                <Errors errors={errors} />
+                        <textarea onChange={onChange} name='overview' value={state.overview} placeholder='Enter movie overview' cols='100' rows='6'></textarea><br />
+                        <input type='submit' ></input>
+                    </form>
+                    <Errors errors={errors} />
             </div>
         </div>
     )

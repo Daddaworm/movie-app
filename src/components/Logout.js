@@ -21,7 +21,6 @@ const Logout = ({ setCurrentUser }) => {
         setTimeout(() => {
             history.push("/login");
         }, 2000);
-        console.log('User logged out')
     };
 
     return (

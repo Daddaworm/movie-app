@@ -46,7 +46,6 @@ const AddMovie = ({ categories, setMovies, errors, movies }) => {
             <br />
             <div className='add__movie__form'>
                 <form onSubmit={handleCreateMovie} >
-                    
                     <input onChange={onChange} type="text" name='title' placeholder='Enter movie title' size='101'></input><br />
                     <p><br />
                         <select onChange={onChange} className='mpaa__rating__select' name='mpaa_rating'>
@@ -59,7 +58,6 @@ const AddMovie = ({ categories, setMovies, errors, movies }) => {
                             <option value='Not yet rated'>Not yet rated</option>
                         </select>
                     </p>
-
                     <p>
                         <select onChange={onChange} className='category__select' name="category_id">
                             <option disabled selected value> -- Select a category -- </option>
@@ -72,11 +70,8 @@ const AddMovie = ({ categories, setMovies, errors, movies }) => {
                     <p>
                         <input onChange={onChange} type="text" name='trailer_url' placeholder='Enter movie trailer url' size='101'></input>
                     </p>
-                    
                     <textarea onChange={onChange} name='overview' placeholder='Enter movie overview' cols='100' rows='6'></textarea><br /><br />
-
                     <input type='submit' ></input>
-                    
                 </form>
                 <Errors errors={errors} />
             </div>

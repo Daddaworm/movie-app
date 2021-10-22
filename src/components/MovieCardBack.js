@@ -39,7 +39,6 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
         fetch(`/movies/${id}`, config)
             .then(resp => resp.json())
             .then(data => {
-                console.log(data)
                 if(!data.errors) {
                     setFavorites([...favorites, data])
                 }
@@ -63,7 +62,6 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
                 console.log(data)
                 if(!data.errors) {
                     setFavorites(filterFavorites())
-                    // history.push('/favorites')
                 }
             } 
         )
@@ -89,7 +87,6 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem>MPAA Rating: {movie.mpaa_rating}</ListGroupItem>
-                    {/* <ListGroupItem>Category: {}</ListGroupItem> */}
                 </ListGroup>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem><Card.Link href={movie.trailer_url} target="_blank">Watch Movie Trailer</Card.Link></ListGroupItem>
@@ -107,7 +104,6 @@ const MovieCardBack = ({movie, setMovieUpdate, movies, setMovies, setFavorites, 
                             <Card.Link onClick={handleClick} >Update Movie</Card.Link>
                             <Card.Link onClick={handleDeleteMovie} href="#" >Delete Movie</Card.Link >
                         </>
-
                     }
                 </Card.Body>
             </Card>

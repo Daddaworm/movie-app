@@ -19,9 +19,7 @@ const MovieCollection = ({ userCategories, movies, setMovies, setMovieUpdate, fa
             <br />
             <br />
             <div className='movie__collection'>
-                
                 {renderMovieCard()}
-                
             </div>
         </div>
     )

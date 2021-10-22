@@ -17,7 +17,6 @@ const Favorites = ({ favorites, setFavorites, setMovieUpdate }) => {
             <br />
             <div className='movie__collection'>
                 {renderMovieCard()}
-                
             </div>
         </div>
     )

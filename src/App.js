@@ -25,8 +25,6 @@ const [favorites, setFavorites] = useState([])
 const history = useHistory();
 
 const handleSignupLogin = (data) => {
-  // console.log(data.errors, 'this is data.errors')
-  console.log(data, 'this is data')
   data.errors ? setErrors(data.errors) : handleState(data)
   if(!data.errors) {
     history.push('/moviecollection')
@@ -36,7 +34,6 @@ const handleSignupLogin = (data) => {
 
 const handleState = (data) => {
   if(!data.errors){
-    console.log(data, 'handleState')
       setCurrentUser(data)
       setMovies(data.movies)
       setUserCategories(data.categories)
@@ -56,7 +53,6 @@ const checkSessionId = () => {
   fetch('/me')
   .then(resp => resp.json())
   .then(data => {
-    console.log(data, '/me')
     handleState(data)
   })
 }
@@ -66,12 +62,6 @@ const fetchCategories = () => {
   .then(resp => resp.json())
   .then(data => setCategories(data))
 }
-
-// const fetchMovies = () => {
-//   fetch('/movies')
-//   .then(resp => resp.json())
-//   .then(data => setMovies(data))
-// }
 
 const filterFavorites = (movies) => {
   return movies.filter(movie => {

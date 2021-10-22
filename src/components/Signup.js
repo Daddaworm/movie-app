@@ -24,7 +24,6 @@ const Signup = ({ handleSignupLogin, errors }) => {
         fetch('/users', config)
             .then(resp => resp.json())
             .then(data => {
-                console.log(data, 'sign-up component')
                 handleSignupLogin(data)})
     }
 

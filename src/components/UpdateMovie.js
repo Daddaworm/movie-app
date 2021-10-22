@@ -26,7 +26,6 @@ const UpdateMovie = ({ categories, errors, movies, setMovies, movieUpdate }) => 
         fetch(`/movies/${id}`, config)
             .then(resp => resp.json())
             .then(data => {
-                console.log(data)
                 if(!data.errors) {
                     setMovies(movies.map(movie => movie.id === id ? data : movie))
                     history.push('/moviecollection')
